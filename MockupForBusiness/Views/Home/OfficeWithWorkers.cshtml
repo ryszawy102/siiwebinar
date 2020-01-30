@@ -1,0 +1,37 @@
+﻿@model Infrastructure.Models.OfficeWithWorkersDto
+@{
+    ViewData["Title"] = "Office Page";
+}
+
+    <div><p>@Model.Office.OfficeName</p></div>
+
+@foreach (var worker in Model.Office.Workers)
+{
+    <div><p>@worker.WorkerName @worker.WorkerSurname</p></div>
+    
+    <div>
+        @foreach (var hobby in worker.Hobbies)
+        {
+        <p>@hobby.HobbyName</p>
+        }
+    </div>
+}
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+
+
+<!-- Styles -->
+<style>
+    #chartdiv {
+        height: 550px;
+        width: 100%;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="js/webinar.js"></script>

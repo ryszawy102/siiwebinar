@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Infrastructure.Models.OfficeDto>
+
+<div class="text-center">
+    <div>
+        <img src="/pic/Sii_logo.jpg" height="100px"/>
+    </div>
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+@Html.ActionLink("Blob Upload", "BlobUpload", "Azure", null)
+<br/>
+<a href="/azure-queue">Azure Queue</a>
+
+<br>
+<br>
+
+@foreach (var office in Model)
+{
+    <div>
+        <a href="@office.OfficeCity">@office.OfficeName</a>
+    </div>
+}

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Email to Queue";
+}
+@model QueueVm
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@using (Html.BeginForm("AzureQueue", "Azure", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.TextBoxFor(x => x.EmailTo, null, new { @class = "txt", placeholder = "Email" })
+
+    @Html.TextBoxFor(x => x.Subject, null, new { @class = "txt", placeholder = "Subject" })
+
+    @Html.TextBoxFor(x => x.Body, null, new { @class = "txt", placeholder = "Body" })
+
+    <input type="submit" name="Submit" id="btnSubmit" value="Put Email to Queue" />
+}
